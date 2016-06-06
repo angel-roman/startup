@@ -1,0 +1,114 @@
+/* add background to the header, footer, aside and nav */
+.header, .navigator, .sidebar, .footer {
+	background-color: #00BFFF;
+	border-radius: 20px;
+}
+
+/* add global font 14px, font-family I like */
+
+body {
+	font-size: 14px;
+	font-family: helvetica, arial;
+	text-align: center;
+}
+
+/* center header and footer */
+
+.header, .footer {
+	text-align: center;
+}
+
+.header {
+	font-size: 46px;
+}
+
+.footer {
+	font-size: 10px;
+}
+
+.navigator {
+	font-size: 12px;
+}
+
+.sidebaar {
+	font-size: 10px;
+}
+
+/* if the class attribute finishes with "r", the background must be magenta */
+
+[class$="r"] {
+	background-color: magenta;
+}
+
+/*class attribute contains A but doesn't finish with R */
+:not([class$="r"]) [class*="a"] {
+	background-color: blue;
+}
+
+/* add weight to global font*/
+body * {
+	font-weight: 800;
+}
+
+/* change background oh-no-inline-styles */
+.oh-no-inline-styles {
+	background-color: #008000 !important;
+}
+
+/* modify to get a similar layout as shown */
+* {
+	margin: 1%;
+}
+
+.header, .footer {
+	padding: 20px 0px;
+}
+
+.navigator, .sidebar {
+	width: 25%;
+	height: 600px;
+	display: inline;
+}
+
+.navigator, .content {
+	float: left;
+}
+
+.sidebar {
+	float: right;
+	display: inline-block;
+}
+
+.content {
+	width: 44%;
+	height: 600px;
+	background-color: #55FFFF;
+	border-radius: 20px;
+}
+
+.footer {
+	clear: both;
+}
+
+#sectionHeader {
+	background-color: #20EEFF;
+	padding-top: 22px;
+	height: 170px;
+	border-radius: 20px;
+}
+
+#sectionArticle {
+	background-color: #20EEFF;
+	padding-top: 22px;
+	height: 170px;
+	border-radius: 20px;
+}
+
+#sectionFooter {
+	background-color: #20EEFF;
+	padding-top: 22px;
+	height: 170px;
+	border-radius: 20px;
+}
+
+
