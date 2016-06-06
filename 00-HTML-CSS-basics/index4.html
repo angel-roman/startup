@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<form>
+			<label for="name">Name: </label>
+			<input type="text" id="name" required/><br/>
+			<label for="lastName">Last Name: </label>
+			<input type="text" id="lastName" required/><br/>
+			<label for="email">email: </label>
+			<input type="email" id="email" required/><br/>
+			<label for="birthday">Birthday: </label>
+			<input type="date" id="birthday" required/><br/>
+			<label for="favoriteSport">What's your favorite sport? </label>
+			<select id="favoriteSport" default="select">
+				<option selected disabled>Choose a sport</option>
+				<option>football</option>
+				<option>Tennis</option>
+				<option>Basketball</option>
+				<option>Volleyball</option>
+				<option>Baseball</option>
+			</select><br/>
+			<label for="bio">Something about you: </label>
+			<textarea id="bio" rows="4"></textarea><br/>
+			<input type="submit" value="Done!"/>
+			<input type="reset" value="Erase data"/>
+		</form>
+	</body>
