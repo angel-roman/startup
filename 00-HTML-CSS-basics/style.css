@@ -1,0 +1,153 @@
+.header, .navigator, .sidebar, .footer {
+
+	border-radius: 20px;
+}
+
+
+body {
+
+	font-family: helvetica, arial;
+	text-align: center;
+	background-image: url("bg.jpg");
+		font-size: 14px;
+	color: white;
+	border-color: gray;
+	text-shadow: 2px 2px 3px black;
+		border-radius: 20px;
+}
+
+#profile {
+	width: 150px;
+	margin-top: 10%;
+	border-radius: 20px;
+}
+
+#name {
+	font-size: 14px;
+	color: white;
+	border-color: gray;
+	text-shadow: 2px 2px 3px black;
+	display: block;
+	padding-top: 10px;
+
+	
+}
+
+#mail{
+	display: block;
+	padding-top: 10px;
+}
+
+#github {
+	display: block;
+	padding-top: 10px;
+
+}
+#aboutMe{
+	padding-top: 30px;
+}
+
+.header, .footer {
+	text-align: center;
+}
+
+.header {
+	font-size: 46px;
+}
+
+.footer {
+	font-size: 10px;
+}
+
+.navigator {
+	font-size: 14px;
+	color: white;
+	text-shadow: 2px 2px 3px black;
+
+}
+
+
+
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.sidebaar {
+	font-size: 10px;
+}
+
+* {
+	margin: 1%;
+}
+
+.header, .footer {
+	padding: 20px 0px;
+}
+
+.navigator {
+	width: 25%;
+	height: 600px;
+	width: 180px;
+	display: inline;
+	background-color: rgba(0, 0, 0, .5);
+	
+
+}
+
+.navigator, .content {
+	float: left;
+}
+
+.sidebar {
+	float: right;
+	display: inline-block;
+}
+
+.content {
+	width: 72%;
+	height: 600px;
+	background-color: rgba(0, 0, 0, .5);
+	border-radius: 20px;
+}
+
+.footer {
+	clear: both;
+}
+
+#sectionHeader {
+	font-size: 32px; 
+
+
+	height: 48px;
+
+}
+
+.exercises{
+	background-color: rgba(120, 120, 120, .8);
+	border-radius: 10px;
+	font-size: 18px;
+	display: block;
+	height: 22px;
+}
+
+#sectionArticle {
+	padding-top: 22px;
+	height: 170px;
+	border-radius: 20px;
+}
+
