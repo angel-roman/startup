@@ -21,7 +21,8 @@
 </html>
 
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function(event) {
+	document.addEventListener("DOMContentLoaded", function(event)
+	{
     	console.log("Fade in effect...");
     	document.getElementById("helloWorld-container").classList.add("fadeInSection");
   	});
@@ -49,6 +50,33 @@
   			});
   		
    	}
+
+   	function callService(url, method, params){
+
+		var p = new Promise(function(resolve,reject) {
+
+			var xhttp = new XMLHttpRequest();
+
+    		xhttp.open(method, url+"?"+params, true);
+
+			xhttp.onload = function () {
+          		if (this.status == 200 && this.response.length > 0) {
+          			resolve(this.response)
+	          } else {
+	           		reject("Error");
+	          }
+        	};
+        	
+        	xhttp.onerror = function () {
+          		reject(this.statusText);
+    		};
+
+    		xhttp.send(null);
+		})
+		
+
+		return p;
+	}
 
 
 </script>
