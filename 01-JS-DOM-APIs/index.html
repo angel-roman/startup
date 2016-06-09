@@ -1,0 +1,54 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="style/main.css">
+<html>
+	<head>
+		<section>
+			<h1>Title</h1>
+		</section>
+	</head>
+	<body>
+		<section id="helloWorld-container">
+			<span id="helloText">Hello, World!</span>
+		</section>
+		<section>
+			<input type="button" value="Load List" onclick="loadList('https://api.github.com/search/repositories', 'GET', 'q=Javascript')" />
+		</section>
+		<section>
+			<ul id="fullNameList" style="list-style-type:none">
+			</ul>
+		</section>
+	</body>
+</html>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+    	console.log("Fade in effect...");
+    	document.getElementById("helloWorld-container").classList.add("fadeInSection");
+  	});
+
+
+
+   	function loadList(url, method, params){
+
+  		callService(url, method, params).then(
+			function(val) {
+				var elem = JSON.parse(val);
+				console.log(elem);
+
+				var ul = document.getElementById("fullNameList");
+				var items = elem.items;
+				for(i = 0 ;i < elem.items.length ; i++) {
+					var li = document.createElement("li");
+  					li.appendChild(document.createTextNode(items[i].full_name));
+  					li.setAttribute("id", items[i].id); // added line
+  					ul.appendChild(li);
+				};
+			},
+			function(err) {
+				console.log("Error loading list");
+  			});
+  		
+   	}
+
+
+</script>
