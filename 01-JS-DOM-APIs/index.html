@@ -11,6 +11,7 @@
 			<span id="helloText">Hello, World!</span>
 		</section>
 		<section>
+			<input type="button" value="Change Text" onclick="changeText('http://api.icndb.com/jokes/random', 'GET', '')" />
 			<input type="button" value="Load List" onclick="loadList('https://api.github.com/search/repositories', 'GET', 'q=Javascript')" />
 		</section>
 		<section>
@@ -26,6 +27,19 @@
     	console.log("Fade in effect...");
     	document.getElementById("helloWorld-container").classList.add("fadeInSection");
   	});
+
+  	function changeText(url, method, params){
+
+  		callService(url, method, params).then(
+			function(val) {
+				document.getElementById("helloText").innerHTML = JSON.parse(val).value.joke
+			},
+			function(err) {
+				document.getElementById("helloText").innerHTML = err;
+  				document.getElementById("helloWorld-container").classList.add("section-error");
+  			});
+  		
+   	}
 
 
 
