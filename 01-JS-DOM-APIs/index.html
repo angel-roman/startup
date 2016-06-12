@@ -16,7 +16,8 @@
 		</section>
 		<section>
 			<input type="button" value="Change Text" onclick="changeText('http://api.icndb.com/jokes/random', 'GET', '')" />
-			<input type="button" value="Load List" onclick="loadList('https://api.github.com/search/repositories', 'GET', 'q=Javascript')" />
+			<input type="button" value="Load List" onclick="loadList('https://api.github.com/search/repositories', 'GET', 'q=Javascript')" /><br>
+			<input type="text" placeholder="ingrese un repositorio" onkeyup="buscarRepositorio();" id="filter">
 		</section>
 		<section>
 			<ul id="fullNameList" style="list-style-type:none">
@@ -32,14 +33,16 @@
     	document.getElementById("helloWorld-container").classList.add("fadeInSection");
   	});
 
+
   	function changeText(url, method, params){
 
   		callService(url, method, params).then(
 			function(val) {
 				document.getElementById("helloText").innerHTML = JSON.parse(val).value.joke
+				document.getElementById("helloWorld-container").classList.remove("section-error");
 			},
 			function(err) {
-				document.getElementById("helloText").innerHTML = err;
+				document.getElementById("helloText").innerHTML = err.type;
   				document.getElementById("helloWorld-container").classList.add("section-error");
   			});
   		
@@ -58,7 +61,7 @@
 				var items = elem.items;
 				for(i = 0 ;i < elem.items.length ; i++) {
 					var li = document.createElement("li");
-  					li.appendChild(document.createTextNode(items[i].full_name));
+  					li.appendChild(document.createTextNode(items[i].full_name.split("/")[0]));
   					li.setAttribute("id", items[i].id); // added line
   					ul.appendChild(li);
 				};
@@ -81,12 +84,12 @@
           		if (this.status == 200 && this.response.length > 0) {
           			resolve(this.response)
 	          } else {
-	           		reject("Error");
+	           		reject({type:'Error'});
 	          }
         	};
         	
         	xhttp.onerror = function () {
-          		reject(this.statusText);
+          		reject({type:'Error'});
     		};
 
     		xhttp.send(null);
@@ -95,6 +98,20 @@
 
 		return p;
 	}
+
+	function buscarRepositorio(){
+		var texto = document.getElementById('filter').value;
+
+		var listItems = document.getElementsByTagName('li');
+		for(i = 0; i < listItems.length; i++) {
+			if(listItems[i].innerHTML.includes(texto)) 
+				listItems[i].classList.remove('listaOculta');
+			else
+				listItems[i].classList.add('listaOculta');
+			}
+		}
+	
+
 
 
 </script>

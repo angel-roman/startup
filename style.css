@@ -1,4 +1,4 @@
-.header, .navigator, .sidebar, .footer {
+.header, .navigator, .sidebar, .footer{
 
 	border-radius: 20px;
 }
@@ -19,7 +19,7 @@ body {
 #profile {
 	width: 150px;
 	margin-top: 10%;
-	border-radius: 20px;
+	border-radius:75px;
 }
 
 #name {
