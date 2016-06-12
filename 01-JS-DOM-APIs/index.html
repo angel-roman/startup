@@ -23,6 +23,13 @@
 			<ul id="fullNameList" style="list-style-type:none">
 			</ul>
 		</section>
+		<section>
+			<input type="text" id="textoMatriz">
+			<input type="button" value="crear matriz" onclick="crearMatriz()">
+			<table id="matrix">
+				
+			</table>
+		</section>
 	</body>
 </html>
 
@@ -48,8 +55,6 @@
   		
    	}
 
-
-
    	function loadList(url, method, params){
 
   		callService(url, method, params).then(
@@ -69,7 +74,6 @@
 			function(err) {
 				console.log("Error loading list");
   			});
-  		
    	}
 
    	function callService(url, method, params){
@@ -106,12 +110,42 @@
 		for(i = 0; i < listItems.length; i++) {
 			if(listItems[i].innerHTML.includes(texto)) 
 				listItems[i].classList.remove('listaOculta');
-			else
+			else {
 				listItems[i].classList.add('listaOculta');
 			}
 		}
+	}
 	
+	function crearMatriz() {
+		var txt = document.getElementById('textoMatriz').value;
+		var matrix = document.getElementById('matrix');
 
+		var matrixItems = document.getElementsByTagName('tr');
+		for (var z = matrixItems.length - 1; z >= 0 ; z--) {
+			matrix.removeChild(matrixItems[z]);	
+		}
 
+		if(txt.startsWith('[') && txt.endsWith(']')) {
+			txt = txt.replace('[','').replace(']','');
 
+			var matrixLine = txt.split(';');
+
+			for(var i = 0; i < matrixLine.length ; i++) {
+				var matrixLineItem = matrixLine[i].split(',');
+
+				// Crear fila
+				var tr = document.createElement("tr");
+
+				//Agregar los items de la fila  actual
+				for(var j = 0 ; j < matrixLineItem.length ; j++) {
+					var td = document.createElement('td');
+					td.appendChild(document.createTextNode(matrixLineItem[j]));
+					tr.appendChild(td);	
+				}
+
+				// Agregar fila a la tabla
+				matrix.appendChild(tr);
+			}
+		}
+	}
 </script>
