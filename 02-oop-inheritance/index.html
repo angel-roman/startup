@@ -11,15 +11,16 @@
 	<select id="movies" default="select" onchange="changeText();" required class="elem" />
 		<option selected disabled value="none" class="elem">Choose a movie</option>
 	</select><br/>
-	<textarea id="display" disabled class="elem"></textarea>
+	<textarea id="display" disabled class="elem"></textarea><br>
 
 	
 	<label id="shareLb" class="elem">share this movie with a friend</label>
 	<input type="text" id="friend" placeholder="Type your friend's name" class="elem" required/>
-	<input type="button" value="share" class="elem" onclick="sh.share()">
+	<input type="button" value="share" class="elem" onclick="sh.share()"><br>
+	<label id="shareStat" class="elem"></label>
 	</form>
 
-	<label id="shareStat" class="elem"></label>
+
 
 </body>
 </html>
