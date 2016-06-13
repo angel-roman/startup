@@ -5,11 +5,10 @@
 	<title></title>
 </head>
 <body>
-
-<label>
-	
-
-</label>
+holaaa
+	<select id="movies" default="select">
+		<option selected disabled>Choose a movie</option>
+	</select><br/>
 
 </body>
 </html>
@@ -38,7 +37,7 @@ class Movie {
 	}
 
 	addCast(actors) {
-		var bool = actors instanceOf Array;
+		var bool = actors instanceof Array;
 		if(bool){
 			actors.forEach(function(actor){
 				this.cast.push(actor);
@@ -48,8 +47,10 @@ class Movie {
 			this.cast.push(actors);
 		}
 	}
- 
+
+	
 }
+
 
 var a = new Movie("Titanic", 1998, 162);
 var b = new Movie ("Star Wars", 2015, 135);
@@ -78,9 +79,9 @@ class EventEmitter {
 	}
 }
 
-Movie.create(EventEmitter);
 
-function Social(){
+
+class Social{
 
 	share(friendName){
 		return this.title+" has been shared with "+friendName;
@@ -103,6 +104,27 @@ var kat = new Actor ("Kate Winslet", 40);
 
 
 console.log(a.year);
+
+var x = [a, b, c];
+
+var status = false;
+
+console.log(x[2].title);
+
+function getList(){
+
+	for (var i = 0; i < x.length; i++) {
+
+		console.log(x[i].title);
+		var node = document.createElement("option");                 // Create an <option> node
+		var textnode = document.createTextNode(x[i].title);         // Create a text node
+		node.appendChild(textnode);                              // Append the text to <li>
+		document.getElementById("movies").appendChild(node);
+
+		}
+	}
+
+this.getList();
 
 
 </script>
