@@ -3,13 +3,23 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
+	<title>Topic 2</title>
 </head>
 <body>
-	<select id="movies" default="select" onchange="changeText();">
-		<option selected disabled value="none">Choose a movie</option>
+	<h1>This is Topic 2</h1>
+	<form>
+	<select id="movies" default="select" onchange="changeText();" required class="elem" />
+		<option selected disabled value="none" class="elem">Choose a movie</option>
 	</select><br/>
-	<textarea id="display" disabled></textarea>
+	<textarea id="display" disabled class="elem"></textarea>
+
+	
+	<label id="shareLb" class="elem">share this movie with a friend</label>
+	<input type="text" id="friend" placeholder="Type your friend's name" class="elem" required/>
+	<input type="button" value="share" class="elem" onclick="sh.share()">
+	</form>
+
+	<label id="shareStat" class="elem"></label>
 
 </body>
 </html>
@@ -75,7 +85,7 @@ class EventEmitter {
 	}
 
 	off(){
-		this = null;
+		// this = null;
 		console.log("listener deleted");
 	}
 }
@@ -83,9 +93,22 @@ class EventEmitter {
 
 
 class Social{
+	constructor(title, friend){
+		this.title = title;
+		this.friend = friend
+	}
 
-	share(friendName){
-		return this.title+" has been shared with "+friendName;
+	share(){
+
+		var name = document.getElementById("friend").value;
+		var val= document.getElementById("movies").value;
+
+		if(name != "" && val != "none")
+		{
+			var movie = document.getElementById("movies").value;
+			document.getElementById("shareStat").innerHTML = movie + " has been shared with " + name;
+		}
+		else document.getElementById("shareStat").innerHTML = "select a movie and type in the name of a friend to share."
 	}
 
 	like(friendName){
@@ -147,7 +170,8 @@ function changeText(){
 
 }
 
-	
+var sh= new Social;
+
 
 
 

@@ -1,8 +1,28 @@
-#display {
-	height: 50px;
-	width: 100px;
+body{
+	text-align: center;
+}
+
+* {
+
+	/*width: 300px;*/
 	resize: none;
 	font-size: 14px;
 	font-family: helvetica, arial;
-	
+	margin-top: 10px;
+
+}
+
+#display {
+	height: 50px;
+}
+
+form {
+	width: 30%;
+	display: block;
+	margin: 1% auto;
+	padding: 5px;
+}
+
+.elem {
+	width: 300px;
 }
