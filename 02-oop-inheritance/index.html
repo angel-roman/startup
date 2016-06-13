@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<label>
+	
+
+</label>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+class Movie {
+
+	constructor(title, year, duration) {
+	this.title = title;
+	this.year = year;
+	this.duration = duration;
+	this.cast = [];
+	}
+
+	play() {
+		console.log("now playing "+ this.title);
+	}
+
+	pause() {
+		console.log("the movie "+ this.title + " is now paused.");
+	}
+
+	resume() {
+		console.log("resuming "+ this.title);
+	}
+
+	addCast(actors) {
+		var bool = actors instanceOf Array;
+		if(bool){
+			actors.forEach(function(actor){
+				this.cast.push(actor);
+			})
+		}
+		else {
+			this.cast.push(actors);
+		}
+	}
+ 
+}
+
+var a = new Movie("Titanic", 1998, 162);
+var b = new Movie ("Star Wars", 2015, 135);
+var c = new Movie ("X-Men", 2014, 132);
+a.play();
+b.resume();
+c.pause();
+
+class EventEmitter {
+
+	constructor(log){
+		this.log=log;
+	}
+
+	on(event, logObject){
+
+	}
+
+	emit(){
+
+	}
+
+	off(){
+		this = null;
+		console.log("listener deleted");
+	}
+}
+
+Movie.create(EventEmitter);
+
+function Social(){
+
+	share(friendName){
+		return this.title+" has been shared with "+friendName;
+	}
+
+	like(friendName){
+		return friendName + " likes this movie."
+	}
+}
+
+class Actor{
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+}
+
+var leo = new Actor ("leo Di Caprio", 43);
+var kat = new Actor ("Kate Winslet", 40);
+
+
+console.log(a.year);
+
+
+</script>
