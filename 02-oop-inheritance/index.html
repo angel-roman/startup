@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title></title>
 </head>
 <body>
-holaaa
-	<select id="movies" default="select">
-		<option selected disabled>Choose a movie</option>
+	<select id="movies" default="select" onchange="changeText();">
+		<option selected disabled value="none">Choose a movie</option>
 	</select><br/>
+	<textarea id="display" disabled></textarea>
 
 </body>
 </html>
@@ -109,22 +110,45 @@ var x = [a, b, c];
 
 var status = false;
 
-console.log(x[2].title);
 
 function getList(){
+	var len= document.getElementById("movies").length;
 
 	for (var i = 0; i < x.length; i++) {
+
 
 		console.log(x[i].title);
 		var node = document.createElement("option");                 // Create an <option> node
 		var textnode = document.createTextNode(x[i].title);         // Create a text node
-		node.appendChild(textnode);                              // Append the text to <li>
+		node.appendChild(textnode);
+ 
 		document.getElementById("movies").appendChild(node);
-
+				document.getElementsByTagName("option")[i+1].setAttribute("value", x[i].title);
+		console.log(movies[i]);
 		}
 	}
 
 this.getList();
+
+function changeText(){
+	
+	var text = document.getElementById("movies").value;
+	console.log(text);
+	var len= document.getElementById("movies").length;
+
+	for(var i = 0; i < len; i++){
+		if(text == x[i].title){
+
+			document.getElementById("display").innerHTML = x[i].title + "\nyear: " + x[i].year + "\nduration: " + x[i].duration;
+			break;
+		}
+
+	}
+
+}
+
+	
+
 
 
 </script>
