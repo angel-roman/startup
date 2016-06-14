@@ -16,7 +16,7 @@
 	
 	<label id="shareLb" class="elem">share this movie with a friend</label>
 	<input type="text" id="friend" placeholder="Type your friend's name" class="elem" required/>
-	<input type="button" value="share" class="elem" onclick="sh.share()"><br>
+	<input type="button" value="share" class="elem" id="button" onclick="sh.share()"><br>
 	<label id="shareStat" class="elem"></label>
 	</form>
 
@@ -147,8 +147,8 @@ function getList(){
 		node.appendChild(textnode);
  
 		document.getElementById("movies").appendChild(node);
-				document.getElementsByTagName("option")[i+1].setAttribute("value", x[i].title);
-		console.log(movies[i]);
+		document.getElementsByTagName("option")[i+1].setAttribute("value", x[i].title);
+		console.log(movies[i+1]);
 		}
 	}
 
@@ -170,7 +170,7 @@ function changeText(){
 	}
 
 }
-
+		
 var sh= new Social;
 
 
