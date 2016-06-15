@@ -1,5 +1,5 @@
 body{
-	background-color: aquamarine;
+	
 	text-align: center;
 }
 
@@ -18,16 +18,16 @@ body{
 }
 
 form {
-	width: 30%;
+	width: 320px;
 	display: block;
 	margin: 1% auto; 
 	padding: 3px;
 	border-style: solid;
-	border-color: #6FEFC4
+	border-color: #CA4023;
 }
 
 .elem {
-	width: 300px;
+	width: 270px;
 }
 
 #button {

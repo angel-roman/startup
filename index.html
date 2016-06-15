@@ -2,13 +2,45 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-	<meta name="viewport" content="device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	 <link rel="stylesheet" type="text/css" href="style.css"> 
 	<title>Bootcamp</title>
 </head>
 <body>
 	<header class="header">Bootcamp Globant Web UI</header>
-	<nav class="navigator"> 
+
+	<nav class="navigator">
+		<label id="profTitle">Profile</label>
+		<img src="profile.jpeg" id="profile">
+		<label id="name">Angel Roman Gomez</label>
+		<label id="mail">ang_gom@hotmail.com</label>
+		<a href="http://github.com/angel-roman" id="github">github/angel-roman</a>
+		<!-- <p id="aboutMe">I'm studying to become an English Translator at Facultad de Lenguas, UNC. I'm currently taking part of a bootcamp held by Globant to become a Web UI developer. </p> -->
+	<article id="sectionArticle">
+			<label class="exercises">Topic 0:</label>
+			<a href="#" class="links" id="t0e1" name="index.html" onclick="listen='1'; listenLink();"> Exercise 1</a>
+			<a href="#" class="links" id="t0e2" name="index2.html" onclick="listen='2'; listenLink();">Exercise 2</a>
+			<a href="#" class="links" id="t0e3" name="index3.html" onclick="listen='3'; listenLink();">Exercise 3</a>
+			<a href="#" class="links" id="t0e4" name="index4.html" onclick="listen='4'; listenLink();">Exercise 4</a>
+			<br>
+			<label class="exercises">Topic 1: </label>
+			<a href="#" class="links" id="t1e1" name="index.html" onclick="listen='5'; listenLink();">Unified Exercised</a>
+			</label>
+			<label class="exercises">Topic 2:</label>
+			<a href="#" class="links" id="t2e1" name="index.html" onclick="listen='6'; listenLink();">Exercise 1</a>	
+	</nav>
+
+	
+	<section class="content">
+	<iframe src="default.html" id="frame"></iframe>
+	</section>
+
+	<!-- <aside class="sidebar">	</aside> -->
+
+
+
+
+
+	<!-- <nav class="navigator"> 
 		<img src="profile.jpeg" id="profile">
 		<label id="name">Angel Roman Gomez</label>
 		<label id="mail">ang_gom@hotmail.com</label>
@@ -16,7 +48,7 @@
 		<p id="aboutMe">I'm studying to become an English Translator at Facultad de Lenguas, UNC. I'm currently taking part of a bootcamp held by Globant to become a Web UI developer. </p>
 	</nav>
 	<section class="content">
-		<header id="sectionHeader">Exercises</header>
+		
 		<article id="sectionArticle">
 			<label class="exercises">Topic 0:
 			<a href="00-HTML-CSS-basics/html/index.html">Exercise 1</a>
@@ -31,10 +63,62 @@
 			<a href="02-oop-inheritance/index.html">Exercise 1</a>
 			</label>
 		</article>
-		<!--<footer id="sectionFooter">SECTION FOOTER</footer>-->
-	<section>
+		<footer id="sectionFooter">SECTION FOOTER</footer>-->
 	<!-- <aside class="sidebar">ASIDE</aside> -->
 	
 	<!--<footer class="footer">FOOTER</footer>-->
 </body>
+
+<script type="text/javascript">
+	
+	var page;
+	var listen;
+
+	function listenLink(){
+		var fugaz = "";
+		switch(listen){
+			case '1': fugaz= document.getElementById("t0e1").getAttribute("name");
+				page= "/00-HTML-CSS-basics/html/";
+				page+= fugaz;
+				break;
+			case '2': var fugaz= document.getElementById("t0e2").getAttribute("name");
+				page= "/00-HTML-CSS-basics/html/"
+				page+= fugaz;
+				break;
+			case '3': var fugaz= document.getElementById("t0e3").getAttribute("name");
+				page = "/00-HTML-CSS-basics/html/"
+				page+= fugaz;
+				console.log(page);
+				break;
+			case '4' : var fugaz= document.getElementById("t0e4").getAttribute("name");
+				page = "/00-HTML-CSS-basics/html/";
+				page+= fugaz;
+				break;
+			case '5' : var fugaz= document.getElementById("t1e1").getAttribute("name");
+				page = "/01-JS-DOM-APIs/";
+				page+= fugaz;
+				break;
+				case '6' : var fugaz= document.getElementById("t2e1").getAttribute("name");
+				page = "/02-oop-inheritance/";
+				page+= fugaz;
+				break;
+
+
+			default: page="/default.html";
+		}
+
+		return document.getElementById("frame").setAttribute("src", "http://localhost:8080/" + page);
+		console.log(page);
+	}
+
+
+	function getPage(){
+		if(page == "")
+			page= "index.html";
+
+	}
+
+</script>
+
 </html>
+

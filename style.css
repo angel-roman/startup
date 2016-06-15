@@ -1,32 +1,45 @@
-.header, .navigator, .sidebar, .footer{
+.navigator, .sidebar, .footer{
 
 	border-radius: 20px;
 }
 
+.content {
+	margin-top: 70px;
+}
+
+iframe {
+	width: 98%;
+	height: 580px;
+	border-style: none;
+}
 
 body {
 
 	font-family: helvetica, arial;
 	text-align: center;
 	background-image: url("bg.jpg");
-		font-size: 14px;
+	font-size: 14px;
 	color: white;
 	border-color: gray;
-	text-shadow: 2px 2px 3px black;
-		border-radius: 20px;
+	text-shadow: 0px 1px 5px black;
+	border-radius: 20px;
+	font-weight: lighter;
 }
 
 #profile {
 	width: 150px;
 	margin-top: 10%;
 	border-radius:75px;
+	border-style: solid;
+	border-color: #3396FF;
+	border-width: 3px;
 }
 
 #name {
 	font-size: 14px;
-	color: white;
+	color: black;
 	border-color: gray;
-	text-shadow: 2px 2px 3px black;
+	text-shadow: 0px 0px 4px gray;
 	display: block;
 	padding-top: 10px;
 
@@ -36,11 +49,16 @@ body {
 #mail{
 	display: block;
 	padding-top: 10px;
+	color: black;
+	text-shadow: 0px 0px 4px gray;
+
 }
 
 #github {
 	display: block;
 	padding-top: 10px;
+	color: black;
+	text-shadow: 0px 0px 3px gray;
 
 }
 #aboutMe{
@@ -61,8 +79,10 @@ body {
 
 .navigator {
 	font-size: 14px;
-	color: white;
-	text-shadow: 2px 2px 3px black;
+	color: black;
+	font-weight: lighter;
+	/* text-shadow: 2px 2px 3px black; */
+
 
 }
 
@@ -71,12 +91,12 @@ body {
 
 a:link {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 a:visited {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 a:hover {
@@ -87,8 +107,10 @@ a:active {
     text-decoration: underline;
 }
 
-.sidebaar {
-	font-size: 10px;
+.sidebar {
+	font-size: 14px;
+	display: inline;
+
 }
 
 * {
@@ -99,30 +121,31 @@ a:active {
 	padding: 20px 0px;
 }
 
-.navigator {
-	width: 25%;
+.navigator, .sidebar{
+	width: 25% auto;
 	height: 600px;
-	width: 180px;
+	max-width: 200px;
 	display: inline;
-	background-color: rgba(0, 0, 0, .5);
-	
+	/* background-color: rgba(0, 0, 0, .5); */
+	overflow: auto;
+	min-width: 200px;
+	background-color: rgba(256, 256, 256, .75);
+	margin-top: 70px;
 
 }
 
-.navigator, .content {
+.navigator, .content, .sidebar{
 	float: left;
 }
 
-.sidebar {
-	float: right;
-	display: inline-block;
-}
 
 .content {
-	width: 72%;
+	width: 60%;
 	height: 600px;
-	background-color: rgba(0, 0, 0, .5);
+	min-width: 300px;
+	background-color: rgba(256, 256, 256, .7);
 	border-radius: 20px;
+	display: inline;
 }
 
 .footer {
@@ -138,16 +161,66 @@ a:active {
 }
 
 .exercises{
-	background-color: rgba(120, 120, 120, .8);
+	background-color: rgba(256, 256, 256, .9);
 	border-radius: 10px;
 	font-size: 18px;
 	display: block;
 	height: 22px;
+	font-weight: lighter;
+	font-style: 0 0 0 0 ;
+	color: #3396FF;
+	text-shadow: 0px 0px 0px;
 }
 
 #sectionArticle {
 	padding-top: 22px;
-	height: 170px;
+
 	border-radius: 20px;
+}
+
+.links {
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-shadow: 0px 0px 4px gray;
+}
+
+#profTitle{
+	background-color: rgba(256, 256, 256, .9);
+	border-radius: 10px;
+	font-size: 18px;
+	display: block;
+	height: 22px;
+	font-weight: lighter;
+	font-style: 0 0 0 0 ;
+	color: #3396FF;
+	text-shadow: 0px 0px 0px;
+	font-size: 18px;
+	display: block;
+	height: 22px;
+	font-weight: lighter;
+	font-style: 0 0 0 0 ;
+	color: #3396FF;
+	text-shadow: 0px 0px 0px;
+	margin-top: 20px;
+}
+
+
+.header {
+	position: fixed;
+	width: 105%;
+	background-color: rgba(256, 256, 256, .9);
+	margin-left: -27px;
+	margin-top: -30px;
+	height: 30px;
+	font-weight: lighter;
+	color: #3396FF;
+	text-shadow: 0px 0px 0px;
+	font-size: 30px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+
 }
 
