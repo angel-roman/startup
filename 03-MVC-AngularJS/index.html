@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script src="angular/angular.min.js"></script>
+	<script src="ang-main.js"></script>
+<title> Movies </title>
+</head>
+<body ng-App="myApp">
+
+	
+	<div id="todo" ng-controller="MainController">
+	<section class="panel">
+	    <div>
+	        <!-- controller logic 
+	        {{ text }}
+
+	        {{ movies }}-->
+	        <p>List of Movies</p>
+
+	        <article ng-repeat="movies in movies"> 
+				<button class="modDel" type="button" ng-click="deleteMovie($index)">❌</button>
+				<button class="modDel" type="button" ng-click="modMovies($index)">📝</button>
+				<a href="#" class="title" id="$index"> {{ movies.title }} </a> 
+	        </article>
+
+	         
+	    </div>
+	</section>
+
+	<section id="content">
+	   	<article ></article>
+	   	<form class="modForm" id="hiddenForm">
+	   		<label>Title</label><br>
+	   		<input type="text" class="formTxt" ng-model="modTitle" required><br>
+			<label>Year</label><br>
+			<input type="text" class="formTxt" ng-model="modYear" required><br>
+			<label>Description</label><br>
+			<input type="text" class="formTxt" ng-model="modDescription" required><br>
+			<input type="submit" value="Modify" ng-click="saveChanges()"><br>
+	   		
+	   	</form>
+	</section>
+
+	<section id="addMovie" class="panel">
+		<p>Add a Movie</p>
+		<form>
+			<label>Title</label><br>
+			<input type="text" class="formTxt" ng-model="title" required><br>
+			<label>Year</label><br>
+			<input type="text" class="formTxt" ng-model="year" required><br>
+			<label>Description</label><br>
+			<input type="text" class="formTxt" ng-model="description" required><br>
+			<input type="submit" value="Add movie" ng-click="addMovie()"><br>
+		</form>
+		
+	</section>
+	</div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	console.log(document.getElementsByTagName('a'));
+</script>
+
+
+
+
