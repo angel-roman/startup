@@ -4,7 +4,7 @@
 }
 
 .content {
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 iframe {
@@ -17,7 +17,8 @@ body {
 
 	font-family: helvetica, arial;
 	text-align: center;
-	background-image: url("bg.jpg");
+	/* background-image: url("bg.jpg"); */
+	background-attachment: fixed;
 	font-size: 14px;
 	color: white;
 	border-color: gray;
@@ -129,8 +130,8 @@ a:active {
 	/* background-color: rgba(0, 0, 0, .5); */
 	overflow: auto;
 	min-width: 200px;
-	background-color: rgba(256, 256, 256, .75);
-	margin-top: 70px;
+	background-color: rgba(200, 200, 200, .75);
+	margin-top: 50px;
 
 }
 
@@ -140,10 +141,10 @@ a:active {
 
 
 .content {
-	width: 60%;
+	width: 62%;
 	height: 600px;
 	min-width: 300px;
-	background-color: rgba(256, 256, 256, .7);
+	background-color: rgba(256, 256, 256, .75);
 	border-radius: 20px;
 	display: inline;
 }
@@ -210,14 +211,14 @@ a:active {
 .header {
 	position: fixed;
 	width: 105%;
-	background-color: rgba(256, 256, 256, .9);
+	background-color: rgba(18, 18, 18, .9);
 	margin-left: -27px;
 	margin-top: -30px;
-	height: 30px;
+	height: 15px;
 	font-weight: lighter;
-	color: #3396FF;
-	text-shadow: 0px 0px 0px;
-	font-size: 30px;
+	color: white;
+	text-shadow: 0px 0px 3px gray;
+	font-size: 20px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;

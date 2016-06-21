@@ -5,19 +5,64 @@
 </head>
 <body>
 <style type="text/css">
-	#label {
+	#container {
 		color: #3396FF;
 		font-family: helvetica, arial;
 		font-size: 36px;
 		font-weight: lighter;
 		display: block;
 		margin-top: 320px;
-	}
+
+	}	
+
+.fadeInSection{
+	   -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */
+       -ms-animation: fadein 4s; /*ie */
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
 </style>
 
-<label id="label"> < select an exercise to star. </label>
+
+<section id="container">
+	<span>< select an exercise to start.</span>
+</section>
 
 
 
 </body>
 </html>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event)
+	{
+    	document.getElementById("container").classList.add("fadeInSection");
+  	});
+
+
+
+</script>
