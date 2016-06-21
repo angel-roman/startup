@@ -5,6 +5,19 @@ body {
 	font-size: 14px;
 }
 
+header {
+	display: block;
+	min-width: 250px;
+	max-width: 780px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .7);
+	height: 30px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	top: 0px;
+}
+
 #todo {
 	background-color: rgba(255, 255, 255, 0.5);
 	display: inline-block;

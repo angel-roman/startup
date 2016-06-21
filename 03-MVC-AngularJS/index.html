@@ -7,7 +7,7 @@
 <title> Movies </title>
 </head>
 <body ng-App="myApp">
-
+<header>Topic 3 - Working with Angular</header>
 	
 	<div id="todo" ng-controller="MainController">
 	<section class="panel">
@@ -29,7 +29,7 @@
 	</section>
 
 	<section id="content">
-	   	<article class="showtime"> 
+	   	<article class="showtime">
 	   		<p ng-bind="inTitle" class="inTitle">  </p>
 	   		<p ng-bind="inYear" class="inYear">  </p>
 	   		<p ng-bind="inDescription" class="inDescription">  </p>
@@ -38,6 +38,7 @@
 
 
 	   	<form class="modForm" id="hiddenForm">
+	   		<p>Modify here:</p>
 	   		<label>Title</label><br>
 	   		<input type="text" class="formTxt" ng-model="modTitle" required><br>
 			<label>Year</label><br>
