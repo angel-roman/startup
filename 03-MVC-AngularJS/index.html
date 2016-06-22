@@ -24,7 +24,7 @@
 				<a class="title" id="$index" ng-click="showMovies($index)"> {{ movies.title }} </a> 
 	        </article>
 
-	         
+	         {{TheMovies}}
 	    </div>
 	</section>
 
@@ -34,6 +34,9 @@
 	   		<p ng-bind="inYear" class="inYear">  </p>
 	   		<p ng-bind="inDescription" class="inDescription">  </p>
 	   		<img ng-src="{{ imagePath }}">
+
+
+
 	   	</article>
 
 

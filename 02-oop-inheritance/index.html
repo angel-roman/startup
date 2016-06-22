@@ -27,17 +27,51 @@
 
 <script type="text/javascript">
 	
-class Movie {
+
+
+class EventEmitter {
+
+	constructor(log){
+		this.log=log;
+		this.events={};
+	}
+
+	on(event, callback) {
+		if (!this.events[event]){
+			this.events[event] = [];
+		}
+
+		this.events[event].push(callback)
+	}
+
+	emit(event){
+		//Iterar sobre events, ejecutar cada funcion.
+		this.events[event][0]();
+	}
+
+	off(){
+		//  slice sirve?
+		this.events[event] = undefined; 
+		delete this.events[event]
+		console.log("listener deleted");
+	}
+}
+
+
+class Movie extends EventEmitter {
 
 	constructor(title, year, duration) {
-	this.title = title;
-	this.year = year;
-	this.duration = duration;
-	this.cast = [];
+		super();
+		this.title = title;
+		this.year = year;
+		this.duration = duration;
+		this.cast = [];
 	}
 
 	play() {
+
 		console.log("now playing "+ this.title);
+		this.emit('play');
 	}
 
 	pause() {
@@ -60,36 +94,21 @@ class Movie {
 		}
 	}
 
-	
 }
 
 
 var a = new Movie("Titanic", 1998, 162);
 var b = new Movie ("Star Wars", 2015, 135);
 var c = new Movie ("X-Men", 2014, 132);
+
+a.on('play', function(){ console.log('PLAY') } );
+
 a.play();
+
+
 b.resume();
 c.pause();
 
-class EventEmitter {
-
-	constructor(log){
-		this.log=log;
-	}
-
-	on(event, logObject){
-
-	}
-
-	emit(){
-
-	}
-
-	off(){
-		// this = null;
-		console.log("listener deleted");
-	}
-}
 
 
 
