@@ -142,13 +142,12 @@ function getList(){
 
 
 		console.log(x[i].title);
-		var node = document.createElement("option");                 // Create an <option> node
-		var textnode = document.createTextNode(x[i].title);         // Create a text node
+		var node = document.createElement("option");         // Create an <option> node
+		var textnode = document.createTextNode(x[i].title);  // Create a text node
 		node.appendChild(textnode);
  
 		document.getElementById("movies").appendChild(node);
 		document.getElementsByTagName("option")[i+1].setAttribute("value", x[i].title);
-		console.log(movies[i+1]);
 		}
 	}
 

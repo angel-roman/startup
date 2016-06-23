@@ -1,8 +1,3 @@
-/*
- angular-file-upload v2.3.4
- https://github.com/nervgh/angular-file-upload
-*/
-
 var app = angular.module('myApp', []);
 
 
@@ -15,14 +10,13 @@ app.controller('MainController', ['$scope', function($scope){
 	    this.imgPath = 'img/nocover.jpg';
 	    this.set = function(attribute, value) {
 	      if (!attribute){
-	        console.log('The attribute has not been seted correctly. Please, use the function set(title,movieTitle)');
+	        console.log('The attribute has not been set correctly. Please, use the function set(title,movieTitle)');
 	      }
 	      else {
 	        this[attribute] = value;
 	      }
 	    }
 	};
-
 
 	var mov1 = new Movie();
 	mov1.set('title', 'X-men');
@@ -36,19 +30,15 @@ app.controller('MainController', ['$scope', function($scope){
 	mov2.set('description', 'demons everywhere');
 	mov2.set('imgPath', 'img/conjuring2.jpg');
 
-	console.log(mov1);
-
 	movies = [mov1, mov2];
 
 	$scope.movies = movies;
 
-	/*$scope.movies = [
-		{title: 'X-Men', year: '2000', description: 'mutants everywhere'},
-		{title: 'The Conjuring 2', year: '2016', description: 'demons everywhere'}
-	];*/
-	  	$scope.showMovies = function(index) {
-	  	angular.element( document.querySelector( '.showtime' ) ).css('display', 'block');
-  		angular.element( document.querySelector( '#hiddenForm' ) ).css('display', 'none');
+	$scope.showMovies = function(index) {
+  		angular.element( document.querySelector( '.modPhotoContainer' ) ).css('display', 'none');
+  		angular.element( document.querySelector( '.actionArea' ) ).css('display', 'none');
+  		angular.element( document.querySelector( '.showtime' ) ).css('display', 'block');
+  		angular.element( document.querySelector( '.inImage' ) ).css('box-shadow', '0px 3px 10px black');
  		
   		$scope.inTitle = $scope.movies[index].title;
   		$scope.inYear = 'released in ' + $scope.movies[index].year;
@@ -56,41 +46,78 @@ app.controller('MainController', ['$scope', function($scope){
   		$scope.imagePath = $scope.movies[index].imgPath;
   	};
 
+
 	$scope.addMovie = function () {
-		var mov = new Movie();
-		mov.set('title', $scope.title);
-		mov.set('year', $scope.year);
-		mov.set('description', $scope.description);
-		$scope.movies.push(mov);
-		console.log($scope.movies);
+		var tit = $scope.title;
+		var yea = $scope.year;
+		var des = $scope.description;
+		var img = $scope.imgPath;
+		if(tit, yea, des, img != undefined) {
+			var mov = new Movie();
+			mov.set('title', tit);
+			mov.set('year', yea);
+			mov.set('description', des);
+			mov.set('imgPath', img);
+			$scope.movies.push(mov);
+		}
+		else {
+			alert('Make sure all fields are completed correctly');
+		}
 	};
 
 	$scope.deleteMovie = function(index) {
-		console.log(index);
 		var confirmDelete = confirm('This movie will be deleted. Continue?')
 		if(confirmDelete) {
 	   	$scope.movies.splice(index, 1);
+	   	angular.element( document.querySelector( '.modPhotoContainer' ) ).css('display', 'none');
+	   	angular.element( document.querySelector( '.actionArea' ) ).css('display', 'none');
+	   	angular.element( document.querySelector( '.showtime' ) ).css('display', 'none');
  	}
   };
 
   	$scope.modMovies = function(index) {
+
+  		angular.element( document.querySelector( '.inImage' ) ).css('box-shadow', '0px 3px 10px black');
+  		angular.element( document.querySelector( '.modPhotoContainer' ) ).css('display', 'none');
   		angular.element( document.querySelector( '.showtime' ) ).css('display', 'none');
-  		angular.element( document.querySelector( '#hiddenForm' ) ).css('display', 'block');
+  		angular.element( document.querySelector( '.actionArea' ) ).css('display', 'none');
+  		angular.element( document.querySelector( '.modPhotoContainer' ) ).css('display', 'block');
+  		angular.element( document.querySelector( '.modForm' ) ).css('display', 'block');
+
   		$scope.modTitle = $scope.movies[index].title;
   		$scope.modYear = $scope.movies[index].year;
   		$scope.modDescription = $scope.movies[index].description;
+  		$scope.modImgPath = $scope.movies[index].imgPath;
   		$scope.indexValue = index;
   	};
 
   	$scope.saveChanges = function() {
-  		var movie = $scope.movies[$scope.indexValue];
-  		$scope.movies[$scope.indexValue].set('title', $scope.modTitle);
-		$scope.movies[$scope.indexValue].set('year', $scope.modYear);
-		$scope.movies[$scope.indexValue].set('description', $scope.modDescription);
-		$scope.modTitle = '';
-		$scope.modYear = '';
-		$scope.modDescription = '';
+  		var tit = $scope.modTitle;
+		var yea = $scope.modYear;
+		var des = $scope.modDescription;
+		var img = $scope.modImgPath;
+		if(tit.length != 0 && yea.length != 0 && des.length != 0 && img.length != 0 ) {
+			var movie = $scope.movies[$scope.indexValue];
+	  		$scope.movies[$scope.indexValue].set('title', tit);
+			$scope.movies[$scope.indexValue].set('year', yea);
+			$scope.movies[$scope.indexValue].set('description', des);
+			$scope.movies[$scope.indexValue].set('imgPath', img);
+			$scope.modTitle = '';
+			$scope.modYear = '';
+			$scope.modDescription = '';
+			$scope.modImgPath = '';
+		}
+		else {
+			alert('Make sure all fields are completed correctly');
+		}
+
   	};
+
+  	$scope.showActionArea = function(){
+  		angular.element( document.querySelector( '.modPhotoContainer' ) ).css('display', 'none');
+  		angular.element( document.querySelector( '.actionArea' ) ).css('display', 'block');
+  		angular.element( document.querySelector( '.showtime' ) ).css('display', 'none');
+  	}
 
 
 

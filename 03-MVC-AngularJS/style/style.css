@@ -1,76 +1,200 @@
 body {
-	background-color: #FFC300;
+	background-image: url('/img/bg.jpg');
 	font-family: "Miriad Set Pro", "Helvetica Neue", arial;
-
 	font-size: 14px;
+	width: 100%;
+	margin-left: 0px;
+	background-position: 0% 50%;
+	object-fit: cover;
 }
 
 header {
 	display: block;
-	min-width: 250px;
-	max-width: 780px;
 	width: 100%;
-	background-color: rgba(0, 0, 0, .7);
+	background-color: rgba(0, 0, 0, .9);
 	height: 30px;
-	color: white;
-	text-align: center;
-	font-size: 20px;
-	top: 0px;
+	margin-top: -15px;
+
 }
 
-#todo {
-	background-color: rgba(255, 255, 255, 0.5);
-	display: inline-block;
+.txtHeader {
+	color: white;
+	font-size: 14px;
+	font-weight: lighter;
+	text-align: left;
+	padding-top: 7px;
+	padding-left: 3px;
+}
 
+
+
+.panel {
+	display: inline-block;
+	margin-left: 0px;
+}
+.actionArea{
+	margin-left: 0%;
+	display: none;
+	width: 200px;
+	float: left;
+	color: white;
+	text-shadow: 0px 0px 5px black;
+	text-align: center;
+	font-size: 14px;
+	height: 20px;
 }
 
 .panel {
-
-	width: 250px;
-	display: inline-block;
-	height: 100%;
+	width: calc(100% - 270px);
+	height: auto;
+	background-color: rgba(30, 30, 30, .8);
 }
+
+
 
 #content {
 	background-color: rgba(255, 255, 255, 0.4);
 	width: 250px;
-	height: 100%;
+	height: 100vh;
 	min-height: 600px;
+	display: inline-block;
 	float: left;
 }
 
+
+
 section {
-	display: inline-block;
-	float: left;
 	padding-left: 10px;
 }
 
-form {
-	width: 200px;
+.modPhotoContainer{
+	width: 250px;
+	color: white;
+	text-shadow: 0 0 5px black;
 	text-align: center;
+	display: none;
+
+
 }
+
+.inImage {
+	z-index: 900;
+	position: relative;
+	object-fit: cover;
+
+}
+
 .formTxt {
-	width: 150px;
+	width: 200px;
 }
 
 #hiddenForm{
 	display: none;
+	margin-left: -10px;
+	background-size: 100%;
+	padding-top: -10px;
+	position: absolute;
+	z-index: 999;
+	margin-top: -393px;
+}
+
+.modForm {
+	position: absolute;
+	z-index: 999;
+	width: 260px;
+	min-height: 370px;
+	height: 100%;
 }
 
 #hiddenArticle {
 	display: none;
 }
 
-.title {
-	display: inline-block;
-	width: 100px;
+.formTxt {
+	margin-bottom: 10px;
+	height: 20px;
 }
 
+
+
+/*---------MOVIE CATALOG ----------*/
+
+#movieCatalog {
+	text-align: center;
+	padding-top: 5px;
+	margin: 5px;
+	display: inline-block;
+	width: 160px;
+}
+
+.title {
+	display: block;
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	color: white;
+	font-weight: lighter;
+	text-shadow: 0 0 0 5px black;
+	padding-top: 5px;
+}
+
+.photoContainer {
+	width: 120px;
+	height: 160px;
+	background-position: 50% 50%;
+	overflow: hidden;
+	margin-left: 20px;
+
+}
+
+.imgCatalog{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Botones lista peli  */
 .modDel {
-	font-size: 18px;
-	border-color: rgba(0, 0, 0, 0);
+	font-size: 12px;
+	width: 70px;
+	border-width: 1px;
 	background-color: rgba(0, 0, 0, 0);
-	width: 32px;
+	display: inline-block;
+}
+
+#deleteBtn {
+	border-color: rgba(0, 0, 0, 0);
+	color: #F14226;
+
+}
+
+#modifyBtn {
+	border-color: rgba(0, 0, 0, 0);
+	color: #F1A126;
+
+}
+
+#btnAdd, #btnMod {
+	border-color: rgba(0, 0, 0, 0);
+	width: 260px;
+	height: 30px;
+	color: #3096DD;
+	font-size: 14px;
+	background-color: rgba(255, 255, 255, .5);
+	box-shadow: 0px 0px 10px gray;
+
+}
+
+#btnAdd {
+
+	margin-left: -20px;
+}
+
+
+/* ------------SHOWTIME----------- */
+.showtime{
+	margin-left: 0px;
+	left: 0px;
 }
 
 .inTitle {
@@ -80,6 +204,18 @@ form {
 .inDescription, .inYear {
 	font-size: 12px;
 }
+
+.inImage {
+	width: 260px;
+	margin-left: -10px;
+	height: 390px;
+	background-position: 50% 50%;
+	overflow: hidden;
+
+}
+
+
+/* ---------------------  */
 
 p {
 	font-size: 18px;
@@ -98,13 +234,19 @@ a:visited {
 
 a:hover {
     text-decoration: underline;
+
 }
 
 a:active {
     text-decoration: underline;
+
 }
 
-img {
-	width: 240px;
+
+
+.disabled{
+	display: none;
+	position: absolute;
+	font-size: 30px;
 }
 

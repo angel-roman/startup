@@ -6,73 +6,80 @@
 	<script src="ang-main.js"></script>
 <title> Movies </title>
 </head>
-<body ng-App="myApp">
-<header>Topic 3 - Working with Angular</header>
-	
-	<div id="todo" ng-controller="MainController">
-	<section class="panel">
-	    <div>
-	        <!-- controller logic 
-	        {{ text }}
+<body ng-App="myApp" ng-controller="MainController">
+	<header>
+		<p class="txtHeader" ng-click="showActionArea()">+Add movie</p>
+	</header>
 
-	        {{ movies }}-->
-	        <p>List of Movies</p>
+		<section id="content">
+	   	
+		   	<div class="showtime">
+		   		<img class="inImage"  ng-src="{{ imagePath }}">
+		   		<p class="inTitle"> {{ inTitle }} </p>
+		   		<p class="inYear"> {{inYear}} </p>
+		   		<p class="inDescription"> {{inDescription}} </p>
+		   	</div>
 
-	        <article ng-repeat="movies in movies"> 
-				<button class="modDel" type="button" ng-click="deleteMovie($index)">❌</button>
-				<button class="modDel" type="button" ng-click="modMovies($index)">📝</button>
-				<a class="title" id="$index" ng-click="showMovies($index)"> {{ movies.title }} </a> 
-	        </article>
-
-	         
-	    </div>
-	</section>
-
-	<section id="content">
-	   	<article class="showtime">
-	   		<p ng-bind="inTitle" class="inTitle">  </p>
-	   		<p ng-bind="inYear" class="inYear">  </p>
-	   		<p ng-bind="inDescription" class="inDescription">  </p>
-	   		<img ng-src="{{ imagePath }}">
-	   	</article>
-
-
-	   	<form class="modForm" id="hiddenForm">
-	   		<p>Modify here:</p>
-	   		<label>Title</label><br>
-	   		<input type="text" class="formTxt" ng-model="modTitle" required><br>
-			<label>Year</label><br>
-			<input type="text" class="formTxt" ng-model="modYear" required><br>
-			<label>Description</label><br>
-			<input type="text" class="formTxt" ng-model="modDescription" required><br>
-			<input type="submit" value="Modify" ng-click="saveChanges()"><br>
-	   		
-	   	</form>
-	</section>
-
-	<section id="addMovie" class="panel">
-		<p>Add a Movie</p>
+	   	<section id="addMovie" class="actionArea" style="display: hidden;">
+		<p>Add movies</p>
 		<form>
-			<label>Title</label><br>
-			<input type="text" class="formTxt" ng-model="title" required><br>
-			<label>Year</label><br>
-			<input type="text" class="formTxt" ng-model="year" required><br>
-			<label>Description</label><br>
-			<input type="text" class="formTxt" ng-model="description" required><br>
-			<input type="submit" value="Add movie" ng-click="addMovie()"><br>
+			<label class="formTxt">Title</label><br>
+			<input type="text" class="formTxt" ng-model="title"><br>
+			<label class="formTxt">Year</label><br>
+			<input type="number" min="1900" max="2016" class="formTxt" ng-model="year"><br>
+			<label class="formTxt">Description</label><br>
+			<input type="text" class="formTxt" ng-model="description"><br>
+			<label class="formTxt">Image Path</label><br>
+			<input type="url" class="formTxt" ng-model="imgPath"><br><br>
+			<button type="submit" value="Add movie" ng-click="addMovie()" class="modDel" id="btnAdd">Add movie<br>
 		</form>
 		
 	</section>
-	</div>
+
+
+	   		<div class="modPhotoContainer">
+				<img class="inImage"  ng-src="{{ modImgPath }}">
+		   		<form class="modForm" id="hiddenForm">
+			   		<div style="background-color: rgba(0, 0, 0, .7); margin-top:0px; height: 390px"></div>
+				   		<p>Modify here:</p>
+				   		<label>Title</label><br>
+				   		<input type="text" class="formTxt" ng-model="modTitle"><br>
+						<label class="formTxt">Year</label><br>
+						<input type="text" class="formTxt" ng-model="modYear"><br>
+						<label class="formTxt">Description</label><br>
+						<input type="text" class="formTxt" ng-model="modDescription"><br>
+						<label class="formTxt">Image Path</label><br>
+						<input type="text" class="formTxt" ng-model="modImgPath"><br><br>
+						<input type="submit" value="Modify" ng-click="saveChanges()" class="modDel" id="btnMod"><br>
+					
+				</form> 
+			</div>
+	   	
+	   	</section>
+
+
+
+	<section class="panel">
+
+	        <article ng-repeat="movies in movies" id="movieCatalog"> 
+	        	<div class="photoContainer">
+	        		<img ng-src="{{ movies.imgPath }}" id="$index" class="imgCatalog" ng-click="showMovies($index)">
+	        	</div>
+	        	<a class="title" id="$index" ng-click="showMovies($index)"> {{ movies.title }} </a>
+				<button class="modDel" id="deleteBtn" type="button" ng-click="deleteMovie($index)">Eliminar</button>
+				<button class="modDel" id="modifyBtn" type="button" ng-click="modMovies($index)">Modificar</button>
+				 
+	        </article>
+	</section>
+
+
+
+
 
 
 </body>
 </html>
 
-<script type="text/javascript">
-	
-	console.log(document.getElementsByTagName('a'));
-</script>
 
 
 
