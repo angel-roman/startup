@@ -2,8 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
-	<script src="angular/angular.min.js"></script>
-	<script src="ang-main.js"></script>
+
 <title> Movies </title>
 </head>
 <body ng-App="myApp" ng-controller="MainController">
@@ -30,7 +29,7 @@
 			<label class="formTxt">Description</label><br>
 			<input type="text" class="formTxt" ng-model="description"><br>
 			<label class="formTxt">Image Path</label><br>
-			<input type="url" class="formTxt" ng-model="imgPath"><br><br>
+			<input type="text" class="formTxt" ng-model="imgPath"><br><br>
 			<button type="submit" value="Add movie" ng-click="addMovie()" class="modDel" id="btnAdd">Add movie<br>
 		</form>
 		
@@ -71,14 +70,13 @@
 				 
 	        </article>
 	</section>
-
-
-
-
-
-
 </body>
 </html>
+
+
+	<script src="angular/angular.min.js"></script>
+	<script src="ang-main.js"></script>	
+
 
 
 

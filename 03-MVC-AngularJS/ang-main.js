@@ -52,13 +52,20 @@ app.controller('MainController', ['$scope', function($scope){
 		var yea = $scope.year;
 		var des = $scope.description;
 		var img = $scope.imgPath;
-		if(tit, yea, des, img != undefined) {
+		console.log(yea);
+		if(tit, yea, des, img != undefined && tit, yea, des, img != null && tit.length != 0 && yea.length != 0 && des.length != 0 && img.length != 0 ) {
+			console.log(tit, yea, des, img);
 			var mov = new Movie();
 			mov.set('title', tit);
 			mov.set('year', yea);
 			mov.set('description', des);
 			mov.set('imgPath', img);
 			$scope.movies.push(mov);
+			$scope.title = '';
+			$scope.year = '';
+			$scope.description = '';
+			$scope.imgPath = '';
+
 		}
 		else {
 			alert('Make sure all fields are completed correctly');
