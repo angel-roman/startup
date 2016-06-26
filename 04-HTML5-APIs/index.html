@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+</head>
+<body>
+
+
+
+
+<p>
+  <textarea id="box" class="textarea" style="height: 50px;" ondrop="drop(event)" ondragover="allowDrop(event)"></textarea><br>
+  <input type="button" id="save" value="save" onclick="addToStorage();"></button>
+  <button type="button" onclick="eraseData()">erase data</button>
+
+ </p>
+
+ <p id="drag" draggable="true" ondragstart="drag(event)">drag me to the box</p>
+
+<div id="target"></div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	myStorage = localStorage;
+
+	function addToStorage(){
+		var i= myStorage.length;
+		var text = document.getElementById('box').value;
+		if(text != undefined && text != null && text != '') {
+			myStorage.setItem(i, text);
+		i++;
+		}
+		else {
+			alert('You should write something or drag a text element to the box');
+		}
+	}
+
+	function eraseData(){
+		myStorage.clear();
+	}
+
+// adding drag and drop //
+
+function allowDrop(ev){
+	ev.preventDefault();
+}
+
+function drag(ev){
+	ev.dataTransfer.setData('text', ev.target.id);
+}
+
+function drop(ev){
+	ev.preventDefault();
+	var data = ev.dataTransfer.getData('text');
+	ev.target.appendChild(document.getElementById(data));
+}
+
+</script>
