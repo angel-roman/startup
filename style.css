@@ -9,7 +9,7 @@
 
 iframe {
 	width: 98%;
-	height: 580px;
+	height: 100vh;
 	border-style: none;
 }
 
@@ -124,7 +124,7 @@ a:active {
 
 .navigator, .sidebar{
 	width: 25% auto;
-	height: 600px;
+	height: 100vh;
 	max-width: 200px;
 	display: inline;
 	/* background-color: rgba(0, 0, 0, .5); */
