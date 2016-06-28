@@ -2,23 +2,23 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
+	<title>Drag & Drop</title>
 </head>
 <body>
 
+	<section id="container">
+	  <textarea id="box" class="textarea" style="height: 50px;" ondrop="drop(event)" ondragover="allowDrop(event)"></textarea><br>
+	  <input type="button" class="btn" id="save" value="save" onclick="addToStorage();"></button>
+	  <button type="button" class="btn" onclick="eraseData()">erase data</button>
 
+	</section>
 
+	<p id="drag" draggable="true" ondragstart="drag(event)">drag me to the box</p>
+	<p id="drag1" draggable="true" ondragstart="drag(event)">draaag me, please</p>
+	<p id="drag2" draggable="true" ondragstart="drag(event)">I don't wanna be dragged</p>
+	<p id="drag3" draggable="true" ondragstart="drag(event)">wanna try?</p>
 
-<p>
-  <textarea id="box" class="textarea" style="height: 50px;" ondrop="drop(event)" ondragover="allowDrop(event)"></textarea><br>
-  <input type="button" id="save" value="save" onclick="addToStorage();"></button>
-  <button type="button" onclick="eraseData()">erase data</button>
-
- </p>
-
- <p id="drag" draggable="true" ondragstart="drag(event)">drag me to the box</p>
-
-<div id="target"></div>
+	<div id="target"></div>
 
 </body>
 </html>
@@ -57,5 +57,7 @@ function drop(ev){
 	var data = ev.dataTransfer.getData('text');
 	ev.target.appendChild(document.getElementById(data));
 }
+
+console.log((Math.random()*16).toString(16));
 
 </script>

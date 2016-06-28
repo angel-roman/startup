@@ -6,10 +6,7 @@
 </head>
 
 <body>
-
-<canvas id="myCanvas" width="300px" height="300px">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+	<canvas id="myCanvas" width="500px" height="500px"></canvas>
 
 </body>
 </html>
@@ -17,34 +14,59 @@ Your browser does not support the HTML5 canvas tag.
 <script>
 var c = document.getElementById("myCanvas");
 var rectangle = c.getContext("2d");
-var r = twoDigits(Math.random()*100);
-var g = twoDigits(Math.random()*100);
-var b = twoDigits(Math.random()*100);
+var r = twoDigits(Math.random()*255);
+var g = twoDigits(Math.random()*255);
+var b = twoDigits(Math.random()*255);
 var color = "#" + r + g + b;
 
 function twoDigits(num){
-	var numTxt = "";
+	var numTxt = '';
 	var x = num.toFixed(0);
-	x.toString(16);
-	if(x.length ==1){
-		numTxt = "0" + x;
+	var y = (1*x).toString(16);
+	if(y.length == 1){
+		numTxt = '0' + y;
 	}
 	else {
-		numTxt = x;
+		numTxt = y;
 	}
+	console.log(numTxt);
 	return numTxt;
 }
 
 //rectangle
 rectangle.fillStyle = color;
-rectangle.fillRect(Math.random()*300, Math.random()*300, Math.random()*100, Math.random()*100);
+rectangle.fillRect(Math.random()*500, Math.random()*500, Math.random()*100, Math.random()*100);
 
 //circle
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 ctx.beginPath();
-ctx.arc(Math.random()*300,Math.random()*300,Math.random()*100,0,2*Math.PI);
+ctx.arc(Math.random()*300,Math.random()*500,Math.random()*100,0,2*Math.PI);
+r = twoDigits(Math.random()*100);
+g = twoDigits(Math.random()*100);
+b = twoDigits(Math.random()*100);
 ctx.fillStyle = "#" + r + g + b;
 ctx.stroke();
+ctx.fill();
+
+//
+var canvasElement = document.querySelector("#myCanvas");
+var context = canvasElement.getContext("2d");
+context.beginPath();
+context.moveTo(Math.random()*500, Math.random()*500);
+context.lineTo(Math.random()*200, Math.random()*200);
+context.lineTo(Math.random()*200, Math.random()*200);
+context.closePath();
+ 
+// the outline
+context.lineWidth = 1;
+
+ 
+// the fill color
+r = twoDigits(Math.random()*100);
+g = twoDigits(Math.random()*100);
+b = twoDigits(Math.random()*100);
+context.fillStyle = "#" + r + g + b;
+context.fill();
 
 </script>

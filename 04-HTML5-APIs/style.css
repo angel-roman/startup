@@ -1,13 +1,60 @@
 body {
-	background-image: url('bg.png');
+	background-image: url('bg3.jpg');
+	font-family: helvetica, arial;
+
 }
 
 #myCanvas {
 	background-color: white;
-	border-color: #FF4444;
 	border-style: solid;
 	border-width: 3px;
-	display: block;
+	display: inline-block;
+	border: silver 75px solid;
+	border-image-source: url('border.png');
+	border-image-slice: 75;
+	margin-left: 10%;
+}
 
-	margin-left: 25%;
+
+#container{
+	background-color: rgba(255, 255, 255, .8);
+	width: 300px;
+	height: 250px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FF6060;
+	text-align: center;
+}
+
+#box{
+	min-height: 150px;
+	min-width: 296px;
+	max-height: 150px;
+	max-width: 296px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FF6060;
+	margin-left: -3px;
+	margin-top: -3px;
+}
+
+#drag, #drag1, #drag2, #drag3{
+	height: 40px;
+	background-color: rgba(266, 50, 50, .9);
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	width: 300px;
+	padding-top: 8px;
+}
+
+.btn{
+	border-style: none;
+	background-color: rgba(255, 255, 255, .8);
+	width: 300px;
+	height: 30px;
+	box-shadow: 0px 0px 5px gray;
+	margin-top: 10px;font-size: 15px;
+	color: #5060FF;
+
 }
