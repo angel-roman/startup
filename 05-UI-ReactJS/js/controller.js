@@ -1,5 +1,0 @@
-super Library;
-
-function showList() {
-	
-}

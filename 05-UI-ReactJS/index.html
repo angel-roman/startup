@@ -1,35 +1,156 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ReactJS</title>
-</head>
-<body>
+<html ng-app="helloApp">
+  <head>
+    <title>ResctJS</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 
-<section class="panel">
-	<form>
-		<label>Title</label>
-		<input type="text">
-		<label>Year</label>
-		<input type="text">
-		<label>Description</label>
-		<input type="text">
-		<label>Image Path</label>
-		<input type="text">
-		<input type="button" onclick="" value="Add Movie"/>
-	</form>
-</section>
 
-<section class="container">
-	<table id="movieList">
+  </head>
 
-	</table>
 
-</section>
+  <body>
 
-</body>
-<script src="js/Movie.js"></script>
-<script src="js/Library.js"></script>
-<script src="js/controller.js"></script>
+    <div class="container">
+      <div class="page-header">
+  		<header class="header">React JS</header>
+      </div>
+      <div id="movieApp"></div>
 
-</html>
+    </div>
+    <script type="text/jsx">
 
+      /** @jsx React.DOM */
+      var MovieApp = React.createClass({
+        getInitialState: function() {
+          return {movielist:this.props.movies};
+        },
+        handleNewRowSubmit: function( newmovie ) {
+          this.setState( {movielist: this.state.movielist.concat([newmovie])} );
+        },
+        handleMovieRemove: function( movie ) {
+          
+          var index = -1;	
+          var clength = this.state.movielist.length;
+      		for( var i = 0; i < clength; i++ ) {
+      			if( this.state.movielist[i].title === movie.title ) {
+      				index = i;
+      				break;
+      			}
+      		}
+      		this.state.movielist.splice( index, 1 );	
+      		this.setState( {movielist: this.state.movielist} );
+        },
+        render: function() {
+          return ( 
+            <table>
+              <tr>
+                <td>
+                  <MovieList clist={this.state.movielist}  onMovieRemove={this.handleMovieRemove}/>
+                </td>
+                <td>
+                  <NewRow onRowSubmit={this.handleNewRowSubmit}/>
+                </td>
+              </tr>
+          </table>
+          );
+        }
+      });
+      
+      var MovieList = React.createClass({
+        handleMovieRemove: function(movie){
+          this.props.onMovieRemove( movie );
+        },
+        render: function() {
+          var movies = [];
+          var that = this; // otherwise undefined.
+          this.props.clist.forEach(function(movie) {
+            movies.push(<Movie movie={movie} onMovieDelete={that.handleMovieRemove} /> );
+          });
+          return ( 
+            <div className="movContainer">
+              <table className="table-striped">
+                <td>Cover</td><td className="tdTitle">Title</td><td className="tdYear">Year</td><td className="tdDescription">Description</td>
+                <tbody>{movies}</tbody>
+              </table>
+            </div>
+            );
+        }
+      });
+      
+      var Movie = React.createClass({
+        handleRemoveMovie: function() {
+          this.props.onMovieDelete( this.props.movie );
+          return false;
+        },
+        render: function() {
+          return (
+            <tr>
+            	<td>
+            		<div className="photoContainer">
+            			<img className="imgCover" src={this.props.movie.image}/> 
+            		</div>
+                      		
+            	</td>
+                <td>{this.props.movie.title}</td>
+                <td>{this.props.movie.year}</td>
+                <td>{this.props.movie.description}</td>
+                <td><input type="button"  className="btnRemove" value="Remove" onClick={this.handleRemoveMovie}/></td>
+            </tr>
+            );
+        }
+      });
+      
+      var NewRow = React.createClass({
+        handleSubmit: function() {
+        	var image = this.refs.image.getDOMNode().value;
+	        var title = this.refs.title.getDOMNode().value;
+	        var year = this.refs.year.getDOMNode().value;
+	        var description = this.refs.description.getDOMNode().value;
+
+	        var newrow = {image: image, title: title, year: year, description: description };
+
+	        
+	        this.props.onRowSubmit( newrow );
+	          
+	        this.refs.title.getDOMNode().value = '';
+	        this.refs.year.getDOMNode().value = '';
+	        this.refs.description.getDOMNode().value = '';
+	        this.refs.image.getDOMNode().value = '';
+	        return false;
+        },
+        render: function() {
+          return ( 
+            <section className="well">
+              <label className="addTitle">Add movies</label>
+            <form onSubmit={this.handleSubmit}>
+              <article className="input-group input-group-lg">
+              	<label className="formLabel">Title</label>
+                <input type="text"  className="form-control" ref="title" required/>
+              </article>
+              <article className="input-group input-group-lg">
+              	<label className="formLabel">Year</label>
+                <input type="number"  min="1900" max="2016" className="form-control" ref="year" required/>
+              </article>
+              <article className="input-group input-group-lg">
+              	<label className="formLabel">Description</label>
+                <input type="text"  className="form-control" ref="description" required/>
+              </article>
+              <article className="input-group input-group-lg">
+              	<label className="formLabel">Image Path</label>
+                <input type="text"  className="form-control" ref="image" required/>
+              </article>
+              <article className="input-group input-group-lg">
+                <input type="submit"  className="btnAdd" value="Add Movie"/>
+              </article>
+            </form>
+            </section>
+            );
+        }
+      });
+      var defMovies = [{image:"img/revil.jpg",title:"Resident Evil",year:2002,description:"A special military unit fights a powerful, out-of-control supercomputer and hundreds of scientists who have mutated into flesh-eating creatures after a laboratory accident."},{image:"img/xmen.jpg",title:"X-Men",year:2000,description:"Two mutants come to a private academy for their kind whose resident superhero team must oppose a terrorist organization with similar powers."}];
+      React.renderComponent( <MovieApp movies={defMovies}/>, document.getElementById( "movieApp" ) );
+    </script>
+
+    <script src="http://fb.me/react-0.11.1.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.11.1.js"></script>
+  </body>
+  </html>
