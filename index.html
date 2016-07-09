@@ -1,134 +1,85 @@
-
 <!DOCTYPE html>
-<html lang="eng">
+<html>
 <head>
-	 <link rel="stylesheet" type="text/css" href="style.css"> 
-	<title>Bootcamp</title>
+	<title>Bootcamp Globant</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
-<body>
-	<header class="header">Globant - Bootcamp Web UI</header>
 
-	<nav class="navigator">
-		<label id="profTitle">Profile</label>
-		<img src="profile.jpeg" id="profile">
-		<label id="name">Angel Roman Gomez</label>
-		<label id="mail">ang_gom@hotmail.com</label>
-		<a href="http://github.com/angel-roman" id="github">github/angel-roman</a>
-		<!-- <p id="aboutMe">I'm studying to become an English Translator at Facultad de Lenguas, UNC. I'm currently taking part of a bootcamp held by Globant to become a Web UI developer. </p> -->
-	<article id="sectionArticle">
-			<label class="exercises">Topic 0:</label>
-			<a href="#" class="links" id="t0e1" name="index.html" onclick="listen='1'; listenLink();"> Exercise 1</a>
-			<a href="#" class="links" id="t0e2" name="index2.html" onclick="listen='2'; listenLink();">Exercise 2</a>
-			<a href="#" class="links" id="t0e3" name="index3.html" onclick="listen='3'; listenLink();">Exercise 3</a>
-			<a href="#" class="links" id="t0e4" name="index4.html" onclick="listen='4'; listenLink();">Exercise 4</a>
-			<a href="#" class="links" id="t0e5" name="index.html" onclick="listen='5'; listenLink();">CSS Exercise</a>
-			<br>
-			<label class="exercises">Topic 1: </label>
-			<a href="#" class="links" id="t1e1" name="index.html" onclick="listen='6'; listenLink();">Unified Exercises</a>
-			</label>
-			<label class="exercises">Topic 2:</label>
-			<a href="#" class="links" id="t2e1" name="index.html" onclick="listen='7'; listenLink();">Exercise 1</a>
-			<label class="exercises">Topic 3:</label>
-			<a href="#" class="links" id="t3e1" name="index.html" onclick="listen='8'; listenLink();">Exercise 1</a>	
-	</nav>
+<body class="body">
 
-	
-	<section class="content">
-	<iframe src="default.html" id="frame"></iframe>
+<header id="header">
+	<p class="headerP">Bootcamp Globant</p>
+
+</header>
+
+	<section class="profile">
+		<img src="img/profile.jpg" id="profilePicture">
+		<section class="info">
+			<p id="name">Angel Roman Gomez</p>
+			<a id="linkGithub" href="http://github.com/angel-roman/startup">Github: angel-roman</a>
+			<p id="email">ang_gom@hotmail.com</p>
+		</section>
 	</section>
 
-	<!-- <aside class="sidebar">	</aside> -->
 
+<section class="container">
+	<header class="sectionHeader"></header>
+	<article class="content">
 
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/1-html.jpg" style="border-style: solid; border-width: 1px;">	
+				<div class="exercise" id="hidden1">
+					<a class="linkExercise" href="/00-HTML-CSS-basics/html/index.html">Exercise 1</a> 
+					<a class="linkExercise" href="/00-HTML-CSS-basics/html/index2.html">Exercise 2</a>
+					<a class="linkExercise" href="/00-HTML-CSS-basics/html/index3.html">Exercise 3</a>
+					<a class="linkExercise" href="/00-HTML-CSS-basics/html/index4.html">Exercise 4</a>
+					<a class="linkExercise" href="/00-HTML-CSS-basics/css/index.html">Exercise 5</a>
+				</div>
 
-
-
-	<!-- <nav class="navigator"> 
-		<img src="profile.jpeg" id="profile">
-		<label id="name">Angel Roman Gomez</label>
-		<label id="mail">ang_gom@hotmail.com</label>
-		<a href="http://github.com/angel-roman" id="github">github/angel-roman</a>
-		<p id="aboutMe">I'm studying to become an English Translator at Facultad de Lenguas, UNC. I'm currently taking part of a bootcamp held by Globant to become a Web UI developer. </p>
-	</nav>
-	<section class="content">
-		
-		<article id="sectionArticle">
-			<label class="exercises">Topic 0:
-			<a href="00-HTML-CSS-basics/html/index.html">Exercise 1</a>
-			<a href="00-HTML-CSS-basics/html/index2.html">Exercise 2</a>
-			<a href="00-HTML-CSS-basics/html/index3.html">Exercise 3</a>
-			<a href="00-HTML-CSS-basics/html/index4.html">Exercise 4</a>
-			</label>
-			<label class="exercises">Topic 1:
-			<a href="01-JS-DOM-APIs/index.html">Exercise 1</a>
-			</label>
-			<label class="exercises">Topic 2:
-			<a href="02-oop-inheritance/index.html">Exercise 1</a>
-			</label>
-		</article>
-		<footer id="sectionFooter">SECTION FOOTER</footer>-->
-	<!-- <aside class="sidebar">ASIDE</aside> -->
+			</section>
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/2-js.jpg" style="border-style: solid; border-width: 1px;">
+					<div class="exercise" id="hidden2">
+						<a class="linkExercise" href="/01-JS-DOM-APIs/index.html">Exersices combined</a>
+					</div>
+				</img>
+			</section>
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/3-OOP.jpg" style="border-style: solid; border-width: 1px;">
+				<div class="exercise" id="hidden3">
+					<a class="linkExercise" href="/02-oop-inheritance/index.html">Exercise 1</a>
+				</div>
+				</img>
+			</section>
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/4-angular.jpg" style="border-style: solid; border-width: 1px;">
+				<div class="exercise" id="hidden3">
+					<a class="linkExercise" href="03-MVC-AngularJS/index.html">Exercise 1</a>
+				</div>
+				</img>
+			</section>
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/5-apis.jpg" style="border-style: solid; border-width: 1px;">
+				<div class="exercise" id="hidden3">
+					<a class="linkExercise" href="04-HTML5-APIs/index.html">Exercise 1</a>
+					<a class="linkExercise" href="04-HTML5-APIs/index2.html">Exercise 2</a>
+					<a class="linkExercise" href="04-HTML5-APIs/index3.html">Exercise 3</a>
+				</div>
+				</img>
+			</section>
+			<section class="smallContainer">
+				<img class="imgContainer" src="img/6-react.jpg" style="border-style: solid; border-width: 1px;">
+				<div class="exercise" id="hidden3">
+					<a class="linkExercise" href="05-UI-ReactJS">Exercice 1</a>
+				</div>
+				</img>
+			</section>
 	
-	<!--<footer class="footer">FOOTER</footer>-->
+
+	</article>
+
+</section>
 </body>
-
-<script type="text/javascript">
-	
-	var page;
-	var listen;
-
-	function listenLink(){
-		var fugaz = "";
-		switch(listen){
-			case '1': fugaz= document.getElementById("t0e1").getAttribute("name");
-				page= "/00-HTML-CSS-basics/html/";
-				page+= fugaz;
-				break;
-			case '2': var fugaz= document.getElementById("t0e2").getAttribute("name");
-				page= "/00-HTML-CSS-basics/html/"
-				page+= fugaz;
-				break;
-			case '3': var fugaz= document.getElementById("t0e3").getAttribute("name");
-				page = "/00-HTML-CSS-basics/html/"
-				page+= fugaz;
-				console.log(page);
-				break;
-			case '4' : var fugaz= document.getElementById("t0e4").getAttribute("name");
-				page = "/00-HTML-CSS-basics/html/";
-				page+= fugaz;
-				break;
-			case '5' : var fugaz= document.getElementById("t1e1").getAttribute("name");
-				page = "/00-HTML-CSS-basics/css/";
-				page+= fugaz;
-				break;
-			case '6' : var fugaz= document.getElementById("t1e1").getAttribute("name");
-				page = "/01-JS-DOM-APIs/";
-				page+= fugaz;
-				break;
-				case '7' : var fugaz= document.getElementById("t2e1").getAttribute("name");
-				page = "/02-oop-inheritance/";
-				page+= fugaz;
-				break;
-				case '8' : var fugaz= document.getElementById("t3e1").getAttribute("name");
-				page = "/03-MVC-AngularJS/";
-				page+= fugaz;
-				break;
-
-
-			default: page="/default.html";
-		}
-		return document.getElementById("frame").setAttribute("src", "http://localhost:8080/" + page);
-
-	}
-
-
-	function getPage(){
-		if(page == "")
-			page= "index.html";
-
-	}
-
-</script>
-
 </html>
+
 
